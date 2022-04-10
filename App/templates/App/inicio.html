@@ -6,7 +6,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta name="description" content="" />
         <meta name="author" content="" />
-        <title>Torneo de Juegos</title>
+        <title>Proyecto Django Coder</title>
         <!-- Favicon-->
         <link rel="icon" type="image/x-icon" href="{%static 'App/assets/favicon.ico' %}" />
         <!-- Font Awesome icons (free version)-->
@@ -28,7 +28,7 @@
                 </button>
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav ms-auto">
-                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="{% url '' %}">Inicio</a></li>
+                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" c>Inicio</a></li>
                         <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="#ingresar">Ingresar datos</a></li>
                         <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="#buscar">Buscar</a></li>
                     </ul>
@@ -39,15 +39,15 @@
         <header class="masthead bg-primary text-white text-center">
             <div class="container d-flex align-items-center flex-column">
                 <!-- Masthead Heading-->
-                <h1 class="masthead-heading text-uppercase mb-0">Bienvenido</h1>
+                <h1 class="masthead-heading text-uppercase mb-0">Proyecto Django</h1>
                 <!-- Icon Divider-->
                 <div class="divider-custom divider-light">
                     <div class="divider-custom-line"></div>
                     <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
                     <div class="divider-custom-line"></div>
                 </div>
-                <!-- Masthead Subheading-->
-                <p class="masthead-subheading font-weight-light mb-0">Selecciona una acción en la parte superior</p>
+
+                <p class="masthead-subheading font-weight-light mb-0">Selecciona una acción en la parte superior para ingresar / buscar datos</p>
 
             </div>
         </header>
@@ -63,16 +63,12 @@
                     <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
                     <div class="divider-custom-line"></div>
                 </div>
-                <p class="masthead-subheading font-weight-light mb-0">Selecciona qué datos quieres ingresar</p>
-                <a href = "{% url 'Jugadores' %}">
-                    <button>Jugadores</button>
-                </a>
-                <a href = "{% url 'Entrenadores' %}">
-                    <button>Entrenadores</button>
-                </a>
-                <a href = "{% url 'Sponsors' %}">
-                    <button>Sponsors</button>
-                </a>
+                <p>Selecciona los datos que quieres ingresar</p>
+                <center>
+                    <a class="btn btn-xl btn-outline-light"  href = "{% url 'Jugadores' %}">Jugadores</a>
+                    <a class="btn btn-xl btn-outline-light" href = "{% url 'Entrenadores' %}">Entrenadores</a>
+                    <a class="btn btn-xl btn-outline-light"  href = "{% url 'Sponsors' %}">Sponsors</a>
+                </center>
                
             </div>
         </section>
@@ -88,16 +84,12 @@
                         <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
                         <div class="divider-custom-line"></div>
                     </div>
-                    <p class="masthead-subheading font-weight-light mb-0">Para empezar...</p>
                     <!--FORMULARIO PARA BUSCAR-->
                     <form action="/buscar/" method="get">
 
                         <input type="text" name="jugadores">
                 
                         <input type="submit" value="Buscar">
-                
-                
-                
                 
                     </form>
                 </div>

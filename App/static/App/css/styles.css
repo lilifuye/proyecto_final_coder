@@ -156,6 +156,8 @@ h6, .h6 {
 p {
   margin-top: 0;
   margin-bottom: 1rem;
+  font-size: 20px;
+  text-align: center;
 }
 
 abbr[title],
@@ -3420,13 +3422,14 @@ textarea.form-control-lg {
 }
 
 .btn-outline-light {
-  color: #f8f9fa;
-  border-color: #f8f9fa;
+  color: #2c3e50;
+  border-color: #2c3e50;
+  margin:15px;
 }
 .btn-outline-light:hover {
-  color: #000;
+  color: #1abc9c;
   background-color: #f8f9fa;
-  border-color: #f8f9fa;
+  border-color: #1abc9c;
 }
 .btn-check:focus + .btn-outline-light, .btn-outline-light:focus {
   box-shadow: 0 0 0 0.25rem rgba(248, 249, 250, 0.5);

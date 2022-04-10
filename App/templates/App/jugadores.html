@@ -2,5 +2,33 @@
 {% load static %}
 
 {% block contenidoQueCambia %}
-    <h1>Jugadores</h1>
+    <section class="page-section" id="jugadores">
+        <div class="container">
+            <!-- Datos-->
+            <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0">Jugadores</h2>
+            <!-- Icon Divider-->
+            <div class="divider-custom">
+                <div class="divider-custom-line"></div>
+                <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
+                <div class="divider-custom-line"></div>
+            </div>
+
+            <p>Ingrese datos de jugador</p>
+            <p>Para volver al menú de inicio presione <a href="{% url '' %}">aquí</a></p>
+            <!--Formulario-->
+            {%if myForm.errors %}
+                <p style="color: red;">Los datos ingresas no son correctos</p>
+            {% else %}
+            <p style="color: red;">Los datos correctos se enviarán automáticamente y te redireccionará a la página principal</p>
+            {% endif %}
+            
+            <form action="" method="POST">{% csrf_token %}
+                <table style="align-items:center">
+                    {{ myForm.as_table }}
+                </table>
+                <input type="submit", value="Enviar">
+            </form>
+        
+        </div>
+    </section>
 {% endblock %}
