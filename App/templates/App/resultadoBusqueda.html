@@ -3,17 +3,23 @@
 
 {% block contenidoQueCambia2 %}
 
-    <p>Estamos buscando el: {{query}}</p>
+    <p>Estamos buscando a: {{query}}</p>
+    {% if listaJugadores %}
 
-    {% if jugadores %}
-        {% for jugador in jugadores %}
-            <li>{{jugador.nombre}}</li>
-            <li>{{jugador.edad}}</li>
-            <li>{{jugador.nivel}}</li>
+        {% for jugador in listaJugadores %}
+            ID: {{ jugador.id }} <br/>
+            NOMBRE: {{ jugador.nombre }} <br/>
+            EDAD: {{ jugador.edad }} <br/>
+            NIVEL: {{ jugador.nivel }} <br/><br/><br/>
         {% endfor %}
         
-    {% elif %}
-        <p>No se encontró el jugador</p>
+        <p>Para volver al menú de inicio presione <a href="{% url '' %}">aquí</a></p>
+
+    {% else %}
+
+        <p style="color: red;">No se encontraron resultados :(</p>
+        <p>Para volver al menú de inicio presione <a href="{% url '' %}">aquí</a></p>
+
     {% endif %}
 
 

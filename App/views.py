@@ -72,12 +72,13 @@ def buscar(request):
     return render (request,'App/buscarJugador.html')
 
 def busqueda(request):
-    if request.GET['query']:
-        query = request.GET['query']
-        objetos=jugadores.objects.filter(nombre__icontains=query)
+    if request.method == 'POST':
+        query = request.POST['query']
+        listaJugadores = jugadores.objects.filter(nombre__contains = query)
 
-        return render(request, 'App/resultadoBusqueda.html', {"query":respuesta}, {"jugadores":objetos})
+        return render(request, 'App/resultadoBusqueda.html',{'query':query,'listaJugadores':listaJugadores})
     else:
-        respuesta="No enviaste datos"
-        return HttpResponse(respuesta)
+        return render(request, 'App/resultadoBusqueda.html')
+
+
 
