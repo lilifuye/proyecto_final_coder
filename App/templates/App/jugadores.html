@@ -23,8 +23,8 @@
             {% endif %}
             
             <form action="" method="POST">{% csrf_token %}
-                <table style="align-items:center">
-                    {{ myForm.as_table }}
+                <table class="form-style">
+                    {{ myFormJugadores.as_table }}
                 </table>
                 <input type="submit", value="Enviar datos">
             </form>

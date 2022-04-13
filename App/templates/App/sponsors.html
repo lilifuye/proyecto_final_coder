@@ -15,6 +15,20 @@
             <!--Formulario-->
             <p>Ingrese datos de jugador</p>
             <p>Para volver al menú de inicio presione <a href="{% url '' %}">aquí</a></p>
+            {%if myForm.errors %}
+                <p style="color: red;">Los datos ingresas no son correctos</p>
+            {% else %}
+            <p style="color: red;">Los datos correctos se enviarán automáticamente y te redireccionará a la página principal</p>
+            
+            {% endif %}
+            
+            <form action="" method="POST">{% csrf_token %}
+                <table class="form-style">
+                    {{ myFormSponsors.as_table }}
+                </table>
+                <input type="submit", value="Enviar datos">
+            </form>
+        
         
         </div>
     </section>
