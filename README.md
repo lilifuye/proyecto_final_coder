@@ -1,5 +1,5 @@
 
-Correr el proyecto
+**Correr el proyecto**
 Para correr el proyecto entrar al repositorio https://github.com/lilifuye/proyecto_final_coder y descargar la carpeta y cargarla en vscode, pararse en la carpeta proyecto_final_coder y ejecutar python manage.py runserveren desde la terminal.
 
 Rutas disponibles:
