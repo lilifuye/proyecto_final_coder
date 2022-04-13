@@ -7,7 +7,7 @@ Para correr el proyecto entrar al repositorio https://github.com/lilifuye/proyec
 
 /App: Muestra el inicio de la web.
 
-/App/jugadores:Devuelve un formulario de registro para que los jugadores completen sus datos.(Nombre - Edad - Nivel)
+/App/jugadores: Devuelve un formulario de registro para que los jugadores completen sus datos.(Nombre - Edad - Nivel)
 
 /App/entrenadores: Devuelve un formulario de registro para que los entrenadores completen sus datos (Nombre - Edad - Equipo)
 
