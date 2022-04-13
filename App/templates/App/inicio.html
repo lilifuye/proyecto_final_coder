@@ -85,13 +85,21 @@
                         <div class="divider-custom-line"></div>
                     </div>
                     <!--FORMULARIO PARA BUSCAR-->
-                    <form action="/buscar/" method="get">
+                        <!-- Seccion de herencia-->
+                        {% block contenidoQueCambia2 %}
+                        <p>Escribe el jugador que quieres buscar</p>
+                        <!--
+                        <a class="btn btn-xl btn-outline-light" style="color:#1abc9c; border-color:#1abc9c;" href = "{% url 'buscar' %}">Jugadores</a>
+                        -->
+                        <form action="resultadoBusqueda" method="get">
 
-                        <input type="text" name="jugadores">
-                
-                        <input type="submit" value="Buscar">
-                
-                    </form>
+                            <input type="text" name="query">
+                    
+                            <input type="submit" value="Buscar">
+                    
+                        </form>
+                        {% endblock %}
+
                 </div>
             </div>
         </footer>

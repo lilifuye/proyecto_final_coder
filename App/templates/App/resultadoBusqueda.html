@@ -1,0 +1,20 @@
+{% extends "App/inicio.html" %}
+{% load static %}
+
+{% block contenidoQueCambia2 %}
+
+    <p>Estamos buscando el: {{query}}</p>
+
+    {% if jugadores %}
+        {% for jugador in jugadores %}
+            <li>{{jugador.nombre}}</li>
+            <li>{{jugador.edad}}</li>
+            <li>{{jugador.nivel}}</li>
+        {% endfor %}
+        
+    {% elif %}
+        <p>No se encontró el jugador</p>
+    {% endif %}
+
+
+{% endblock %}

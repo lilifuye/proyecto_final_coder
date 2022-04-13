@@ -11,7 +11,7 @@ def inicio(request):
 def jugadoresFormulario(request):
 
     if request.method == "POST":
-        myForm = JugadoresFormulario(request.POST)                                                                                    #llega info del html
+        myForm = JugadoresFormulario(request.POST)                                                                          #llega info del html
 
         print(myForm)
         
@@ -19,8 +19,8 @@ def jugadoresFormulario(request):
 
             information = myForm.cleaned_data
             nuevoJugador = jugadores(nombre=information['nombre'], edad=information['edad'], nivel=information['nivel']) 
-            nuevoJugador.save()                                                                                         #Guardamos datos
-            return render(request, 'App/inicio.html')                                                                        #volvemos al inicio de la pagina de jugadores con datos limpios
+            nuevoJugador.save()                                                                                             #Guardamos datos
+            return render(request, 'App/inicio.html')                                                                       #volvemos al inicio de la pagina de jugadores con datos limpios
     else:
         myForm = JugadoresFormulario()     
                                                                                                                             #si no hay POST, me devuelvo el html normal
@@ -32,18 +32,18 @@ def jugadoresFormulario(request):
 def entrenadoresFormulario(request):
 
     if request.method == "POST":
-        myForm = EntrenadoresFormulario(request.POST)                                                                                    #llega info del html
+        myForm = EntrenadoresFormulario(request.POST)                                                                       #llega info del html
 
         print(myForm)
         
         if myForm.is_valid:
             information = myForm.cleaned_data
             nuevoEntrenador = entrenadores(nombre=information['nombre'], edad=information['edad'], equipo=information['equipo']) 
-            nuevoEntrenador.save()                                                                                #Guardamos datos
-            return render(request, 'App/inicio.html')                                                                        #volvemos al inicio de la pagina de jugadores con datos limpios
+            nuevoEntrenador.save()                                                                                
+            return render(request, 'App/inicio.html')                                                                      
     else:
         myForm = EntrenadoresFormulario()     
-                                                                                                                            #si no hay POST, me devuelvo el html normal
+                                                                                                                            
     return render (request, 'App/entrenadores.html', {"myFormEntrenadores":myForm})
 
 
@@ -52,24 +52,32 @@ def entrenadoresFormulario(request):
 def sponsorsFormulario(request):
 
     if request.method == "POST":
-        myForm = SponsorsFormulario(request.POST)                                                                                    #llega info del html
-
+        myForm = SponsorsFormulario(request.POST)                                                                                    
         print(myForm)
         
         if myForm.is_valid:
 
             information = myForm.cleaned_data
             nuevoSponsor = sponsors(nombre=information['nombre'], edad=information['edad'], producto=information['producto']) 
-            nuevoSponsor.save()                                                                                         #Guardamos datos
-            return render(request, 'App/inicio.html')                                                                        #volvemos al inicio de la pagina de jugadores con datos limpios
+            nuevoSponsor.save()                                                                                         
+            return render(request, 'App/inicio.html')                                                                        #
     else:
         myForm = SponsorsFormulario()     
-                                                                                                                            #si no hay POST, me devuelvo el html normal
+                                                                                                                           
     return render (request, 'App/sponsors.html', {"myFormSponsors":myForm})
 
 
 
+def buscar(request):
+    return render (request,'App/buscarJugador.html')
 
 def busqueda(request):
-    respuesta = f"Búsqueda: {request.GET['jugadores']}"
-    return HttpResponse(respuesta)
+    if request.GET['query']:
+        query = request.GET['query']
+        objetos=jugadores.objects.filter(nombre__icontains=query)
+
+        return render(request, 'App/resultadoBusqueda.html', {"query":respuesta}, {"jugadores":objetos})
+    else:
+        respuesta="No enviaste datos"
+        return HttpResponse(respuesta)
+
